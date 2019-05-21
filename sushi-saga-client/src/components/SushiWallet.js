@@ -16,8 +16,8 @@ const SushiWallet = (props) => {
         <input type="submit"/>
       </form>
       <form onSubmit={(e) => e.preventDefault()}>
-        <label name="Amount"/> Enter Any Sushi Aversions!:
-        <input type="number" placeholder="15" name="amount"/>
+        <label name="aversion"/> Enter Any Sushi Aversions:
+        <input type="number" placeholder="" name="aversion"/>
         <input type="submit"/>
       </form>
 

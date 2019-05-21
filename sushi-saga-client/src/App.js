@@ -26,11 +26,18 @@ class App extends Component {
   /**************************************/
   handleSushiClick = (sushiID) => {
     const clickedSushi = this.state.sushis.find(sushi => sushi.id === sushiID);
-    clickedSushi.eaten = true;
-    this.setState({
-      sushis: this.state.sushis,
-      bill: this.state.bill + clickedSushi.price
-    })
+
+    if (clickedSushi.price < (this.state.budget - this.state.bill)) {
+      clickedSushi.eaten = true;
+      this.setState({
+        sushis: this.state.sushis,
+        bill: this.state.bill + clickedSushi.price
+      })
+    } else {
+      console.error("Out of Funds!");
+    }
+
+
   }
 
   handleMoreButtonClick = () => {
