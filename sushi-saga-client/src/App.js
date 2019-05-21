@@ -7,16 +7,23 @@ const API = "http://localhost:3000/sushis"
 
 class App extends Component {
 
-  state={sushis: [], sushiIndex:0, budget:100, bill:0, plates: [1,2,3]}
+  //Set Initial State
+  state={sushis: [], sushiIndex:0, budget:100, bill:0}
+
+  /**************************************/
+      //Lifecyle Methods
+  /**************************************/
 
   componentDidMount(){
+    //grab All Sushis right after the component mounts
     fetch(API)
     .then(resp => resp.json())
     .then(data => this.setState({sushis: data}))
   }
 
-  //Event Handlers
-
+  /**************************************/
+      //Event Handlers
+  /**************************************/
   handleSushiClick = (sushiID) => {
     const clickedSushi = this.state.sushis.find(sushi => sushi.id === sushiID);
     clickedSushi.eaten = true;
@@ -39,13 +46,20 @@ class App extends Component {
 
   //End Event Handlers
 
+  /* ***********************************
+      //Render
+  **************************************/
   render() {
-    console.log("sushiIndex is:", this.state.sushiIndex);
-    const nextSushis = this.state.sushis.slice(this.state.sushiIndex, this.state.sushiIndex+4)
+    // console.log("sushiIndex is:", this.state.sushiIndex);
+
+    //generates the 4 sushis that will be displayed on the belt
+    const sushisOnDisplay = this.state.sushis.slice(this.state.sushiIndex, this.state.sushiIndex+4)
+
+    //generates the sushis that have been eaten.
     const eatenSushis = this.state.sushis.filter(sushi => sushi.eaten)
     return (
       <div className="app">
-        <SushiContainer sushis={nextSushis} onSushiClick={this.handleSushiClick} onMoreButtonClick={this.handleMoreButtonClick} />
+        <SushiContainer sushis={sushisOnDisplay} onSushiClick={this.handleSushiClick} onMoreButtonClick={this.handleMoreButtonClick} />
         <Table budget={this.state.budget} bill={this.state.bill} eatenSushis={eatenSushis} onWalletSubmit={this.handleWalletSubmit}/>
         <SushiWallet onWalletSubmit={this.onWalletSubmit} />
       </div>

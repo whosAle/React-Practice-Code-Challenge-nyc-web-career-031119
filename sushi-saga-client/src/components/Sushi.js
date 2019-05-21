@@ -6,7 +6,11 @@ const Sushi = (props) => {
       <div className="plate"
            onClick={() => props.onSushiClick(props.sushi.id)}>
         {
-          /* Tell me if this sushi has been eaten! */
+          /*
+            Display the sushi or an empty
+            plate if depending of if the
+            sushi has been eaten
+           */
           props.sushi.eaten ? null : <img src={props.sushi.img_url} width="100%" />
         }
       </div>
