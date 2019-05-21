@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import SushiWallet from '../components/SushiWallet';
 
 const Table = (props) => {
 
@@ -26,7 +25,6 @@ const Table = (props) => {
           }
         </div>
       </div>
-      <SushiWallet onWalletSubmit={props.onWalletSubmit} />
     </Fragment>
   )
 }

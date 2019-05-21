@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SushiContainer from './containers/SushiContainer';
 import Table from './containers/Table';
-
+import SushiWallet from './components/SushiWallet';
 // Endpoint!
 const API = "http://localhost:3000/sushis"
 
@@ -47,7 +47,7 @@ class App extends Component {
       <div className="app">
         <SushiContainer sushis={nextSushis} onSushiClick={this.handleSushiClick} onMoreButtonClick={this.handleMoreButtonClick} />
         <Table budget={this.state.budget} bill={this.state.bill} eatenSushis={eatenSushis} onWalletSubmit={this.handleWalletSubmit}/>
-
+        <SushiWallet onWalletSubmit={this.onWalletSubmit} />
       </div>
     );
   }

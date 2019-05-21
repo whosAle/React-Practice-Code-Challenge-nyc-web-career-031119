@@ -9,7 +9,7 @@ const SushiWallet = (props) => {
   }
 
   return (
-    <div>
+    <div class="wallet">
       <h3>Add More To Your Wallet!</h3>
       <form onSubmit={handleSubmit}>
         <label name="Amount"/> :
