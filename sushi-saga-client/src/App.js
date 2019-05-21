@@ -8,7 +8,7 @@ const API = "http://localhost:3000/sushis"
 class App extends Component {
 
   //Set Initial State
-  state={sushis: [], sushiIndex:0, budget:100, bill:0}
+  state={sushis: [], sushiIndex:0, budget:100, bill:0, aversions:[]}
 
   /**************************************/
       //Lifecyle Methods
